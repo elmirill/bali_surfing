@@ -1,0 +1,19 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: bali_surfing_development
+
+test:
+  <<: *default
+  database: bali_surfing_test
+
+production:
+  <<: *default
+  database: bali_surfing_production
+  username: bali_surfing
+  password: <%= ENV['BALI_SURFING_DATABASE_PASSWORD'] %>
