@@ -13,4 +13,33 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery
+//= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function() {
+	
+	// Toggle nav
+	$('.nav-toggle').click(function(){
+		$('#main-nav').toggleClass('active');
+		$('.nav-toggle').toggleClass('active');
+		$('.first').toggleClass('active');
+		$('.second').toggleClass('active');
+		$('.third').toggleClass('active');
+	});
+	
+	
+	// Scroll to top
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 300) {
+			$('#to-top').fadeIn('fast');
+		} else {
+			$('#to-top').fadeOut('fast');
+		}
+	});
+	
+	$('#to-top').click(function() {
+		$('html, body').animate({scrollTop: 0}, 400);
+	});
+	
+});

@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BaliSurfing
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Pacifico|PT+Sans:400,700&subset=latin,cyrillic", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    = render "shared/header"
+    = render "shared/to_top"
+    .page-wrapper
+      .main-content-wrapper
+        = yield
+      = render "shared/sidebar"
+    .clearfix
+    = render "shared/footer"

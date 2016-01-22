@@ -14,6 +14,7 @@ test:
 
 production:
   <<: *default
-  database: bali_surfing_production
-  username: bali_surfing
-  password: <%= ENV['BALI_SURFING_DATABASE_PASSWORD'] %>
+  host: <%= ENV['database_host'] %>
+  database: <%= ENV['database_name'] %>
+  username: <%= ENV['database_user'] %>
+  password: <%= ENV['database_pass'] %>
