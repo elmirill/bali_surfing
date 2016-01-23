@@ -21,6 +21,9 @@ gem 'magnific-popup-rails', '~> 1.0'
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 gem 'wysiwyg-rails', '~> 2.0', '>= 2.0.5'
 gem 'haml-rails', '~> 0.9.0'
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3' # dependency for gmaps
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug'

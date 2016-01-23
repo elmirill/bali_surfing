@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 
 $(document).ready(function() {
@@ -41,5 +43,32 @@ $(document).ready(function() {
 	$('#to-top').click(function() {
 		$('html, body').animate({scrollTop: 0}, 400);
 	});
+  
+  
+  // Initialaze Google map
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+      provider: {
+        disableDefaultUI: false,
+        scrollwheel: false
+        // pass in other Google Maps API options here
+      },
+      internal: {
+        id: 'google-map'
+      }
+    },
+    function(){
+      markers = handler.addMarkers([
+        {
+          "lat": -8.721265,
+          "lng": 115.170634
+        }
+      ]);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(19);
+    }
+  );
+  
 	
 });

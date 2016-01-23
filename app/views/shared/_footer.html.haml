@@ -1,1 +1,58 @@
 #footer
+  .page-wrapper.footer-wrapper
+    .row
+      #contacts.footer-blocks.col-lg-3.col-sm-6
+        %h1 Contacts
+        %ul
+          %li
+            info@balilearntosurf.com
+          %li
+            +62 361-761-869
+          %li
+            +62 361-79-22-922
+          %li.address
+            Hard Rock Hotel, Kuta, Bali
+      #social.footer-blocks.col-lg-3.col-sm-6
+        %h1 We are social
+        #social-aligner
+          = link_to "#" do
+            <i class="fa fa-facebook"></i>
+          = link_to "#" do
+            <i class="fa fa-twitter"></i>
+          = link_to "#" do
+            <i class="fa fa-youtube"></i>
+          = link_to "#" do
+            <i class="fa fa-google-plus"></i>
+          = link_to "#" do
+            <i class="fa fa-tripadvisor"></i>
+      .clearfix.visible-md.visible-sm
+      #testimonials.footer-blocks.col-lg-3.col-sm-6
+        #testimonials-aligner
+          %h1 Testimonials
+          %p Thank you Bali Learn To Surf I've always wanted to learn to surf and had lessons with surf schools in Australia but could never stand up. You guys taught me how and got me standing in my first lesson and made my dream come true. I cant wait to tell all my mates I learnt to surf in Bali.
+          %h3.name Anna
+          = link_to "add yours", "#", class: "link"
+          %span.link &nbsp;|&nbsp;
+          = link_to "read more", "#", class: "link"
+          .clearfix
+      #friends.footer-blocks.col-lg-3.col-sm-6
+        %h1 Our friends
+        #friends-aligner
+          = link_to "http://www.rusty.com/", class: "friends-link", target: "_blank" do
+            = image_tag "rusty.png"
+          = link_to "http://www.kutapuri.com/bungalowandspa/",
+          class: "friends-link", target: "_blank" do
+            = image_tag "kuta-puri.png"
+          = link_to "http://www.hardrockhotels.net/",
+          class: "friends-link", target: "_blank" do
+            = image_tag "hard-rock.png"
+  #google-map
+  #sub-footer.page-wrapper.footer-wrapper
+    %p#copy
+      Copyright &copy; 2016
+      = link_to "Bali Learn To Surf", "#"
+      All Rights Reserved.
+    %p#credits
+      Developed and designed by
+      = link_to "Tony Khaybulaev", "https://www.upwork.com/o/profiles/users/_~01856a904db6e8db2a/"
+    .clearfix
