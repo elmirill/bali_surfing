@@ -42,6 +42,20 @@
 //= require plugins/video.min.js
 //= require_tree .
 
+
+// Init Froala Editor
+$(function() {
+  var modules = ['paragraphFormat', 'fontFamily', 'fontSize', '|', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'color', 'emoticons', '|', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '|', 'insertHR', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'undo', 'redo', 'clearFormatting', 'fullscreen', 'html'];
+  $('.froala').froalaEditor({
+    language: 'en',
+    toolbarButtons: modules,
+    toolbarButtonsMD: modules,
+    toolbarButtonsSM: modules,
+    toolbarButtonsXS: modules
+  })
+});
+
+
 $(document).ready(function() {
 	
 	// Toggle nav
@@ -101,17 +115,4 @@ $(document).ready(function() {
   // Initialize bxslider
   $('.bxslider').bxSlider();
 	
-});
-
-
-// Init Froala Editor
-$(function() {
-  var modules = ['paragraphFormat', 'fontFamily', 'fontSize', '|', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'color', 'emoticons', '|', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '|', 'insertHR', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'undo', 'redo', 'clearFormatting', 'fullscreen', 'html'];
-  $('.froala').froalaEditor({
-    language: 'en',
-    toolbarButtons: modules,
-    toolbarButtonsMD: modules,
-    toolbarButtonsSM: modules,
-    toolbarButtonsXS: modules
-  })
 });
