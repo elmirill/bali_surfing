@@ -16,7 +16,8 @@
     = render "shared/to_top"
     .page-wrapper
       .main-content-wrapper
-        = yield
+        #main-content
+          = yield
       = render "shared/sidebar"
     .clearfix
     = render "shared/footer"

@@ -24,6 +24,7 @@ gem 'haml-rails', '~> 0.9.0'
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'underscore-rails', '~> 1.8', '>= 1.8.3' # dependency for gmaps
 gem 'font-awesome-rails'
+gem 'simple_form', '~> 3.1'
 
 group :development, :test do
   gem 'byebug'
@@ -38,4 +39,6 @@ group :production do
 	gem 'unicorn'
 	gem 'rails_12factor'
 end
+
+ruby "2.2.1"
 

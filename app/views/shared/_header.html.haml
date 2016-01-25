@@ -1,7 +1,7 @@
 .page-wrapper
   #header
     #descript.notranslate
-      = link_to "#" do
+      = link_to root_path do
         %h1 Bali Learn to Surf
         %h3 First school on Bali, est 1999
     .nav-toggle
@@ -15,10 +15,10 @@
         %li
           = link_to "Surfari's", "#"
         %li
-          = link_to "Board rentals", "#"
+          = link_to "Board rentals", show_page_path("boardrentals")
         %li
           = link_to "Accomodations", "#"
         %li
           = link_to "Gallery", "#"
         %li
-          = link_to "Links", "#"
+          = link_to "Links", show_page_path("links")

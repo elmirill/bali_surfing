@@ -1,4 +1,4 @@
-= form_for(@page) do |f|
+= simple_form_for(@page) do |f|
   - if @page.errors.any?
     #error_explanation
       %h2
@@ -8,16 +8,14 @@
         - @page.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :name
-    %br/
-    = f.text_field :name
+    = f.input :name, label: false, placeholder: "Title"
   .field
-    = f.label :permalink
-    %br/
-    = f.text_field :permalink
+    = f.input :permalink, label: false, placeholder: "Permalink"
   .field
-    = f.label :content
-    %br/
-    = f.text_area :content
+    = f.input :slider
+  .field
+    = f.text_area :content, class: "froala"
   .actions
-    = f.submit
+    = f.submit class: "bttn"
+    = link_to "Back", :back, class: "admin-link"
+    

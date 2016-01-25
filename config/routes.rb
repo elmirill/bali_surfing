@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'pages#show', id: 'home'
+  get ':id', to: 'pages#show', as: :show_page
   resources :pages
 	
   # The priority is based upon order of creation: first created -> highest priority.

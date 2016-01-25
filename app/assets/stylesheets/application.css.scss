@@ -10,7 +10,22 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+
+ *= require bxslider
+ *= require froala_editor.min.css
+ *= require froala_style.min.css
+ *= require font-awesome
+ *= require plugins/char_counter.min.css
+ *= require plugins/code_view.min.css
+ *= require plugins/colors.min.css
+ *= require plugins/emoticons.min.css
+ *= require plugins/file.min.css
+ *= require plugins/fullscreen.min.css
+ *= require plugins/image_manager.min.css
+ *= require plugins/image.min.css
+ *= require plugins/line_breaker.min.css
+ *= require plugins/table.min.css
+ *= require plugins/video.min.css
  *= require_self
  */
 
@@ -58,18 +73,48 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+a, a img {
+	border: none;
+}
+* {
+  outline: none;
+}
+
 
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome";
 
+
+// Basic Colors
 $white_opaque: rgba(250, 250, 259, 0.8);
-$grey_opaque: rgba(50, 50, 50, 0.5);
 $wrapper_shadow: 0 0 15px 5px rgba(0,0,0,0.1);
-$nav_dark_blue: #184779;
+$content_link: #206EC1;
+$content_link_active: #0D8A65;
+$nav_link_active: #184779;
+$mobile_menu_underscore_active: #458DDA;
+$button_primary_bg: linear-gradient(40deg, #3D819A 10%, #0A9A8D 100%);
+$button_primary_bg_active: linear-gradient(40deg, #37758C 10%, #0A8277 100%);
+
+// Teal Theme
+$body_bg: linear-gradient(40deg, 
+  rgba(61, 106, 154, 1) 10%, rgba(10, 154, 110, 1) 100%);
+$mobile_menu_underscore: #27B38A;
+$footer_bg: rgba(50, 50, 50, 0.5);
 $footer_link: #3B9BEC;
 $footer_link_active: #21B789;
+$social_icons: #2D86D2;
+
+// Orange Theme
+$body_bg: linear-gradient(40deg,
+  rgba(236, 157, 59, 1) 10%, rgba(224, 80, 42, 1) 100%);
+$mobile_menu_underscore: #E65832;
+$footer_bg: linear-gradient(40deg, 
+  rgba(61, 106, 154, 1) 10%, rgba(10, 154, 110, 1) 100%);
+$footer_link: #FFA865;
+$footer_link_active: #2CDCA5;
+$social_icons: #D89562;
+
 
 @mixin transition($property, $time, $effect) {
   -webkit-transition: $property $time $effect;
@@ -79,15 +124,14 @@ $footer_link_active: #21B789;
 }
 
 
+
 body {
-	background-image:
-		linear-gradient(40deg,
-		rgba(61, 106, 154, 1) 10%, rgba(10, 154, 110, 1) 100%);
+	background: $body_bg;
 	font-family: 'PT Sans';
 	background-attachment: fixed;
 }
 
-h1, h2, h3, h4 {
+h1 {
 	font-family: 'Pacifico';
 }
 
@@ -95,12 +139,91 @@ p {
   font-size: 1.6rem;
 }
 
+td {
+  font-size: 1.6rem;
+  padding: 4px 7px;
+  border: 1px solid #DACBC3;
+}
+@media (max-width: 768px) {
+  td {
+    font-size: 1.4rem;
+    padding: 1px 2px;
+  }
+}
+@media (max-width: 595px) {
+  td {
+    font-size: 1.2rem;
+    padding: 1px;
+  }
+}
+
 a {
   @include transition(all, 0.2s, ease-out);
   text-decoration: none;
+  color: $content_link;
+  font-size: 1.6rem;
   &:hover, &:active, &:focus {
     text-decoration: none;
+    color: $content_link_active;
   }  
+}
+
+li {
+  font-size: 1.6rem;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 5px 7px;
+  font-size: 1.6rem;
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+form {
+  input[type="checkbox"] {
+    margin-top: 2px !important;
+    margin-left: -25px !important;
+  }
+}
+
+label {
+  font-size: 1.6rem;
+  &.checkbox {
+    margin-left: 25px;
+    line-height: 1.5;
+  }
+}
+
+hr {
+  border-color: rgba(119, 119, 119, 0.6);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.bttn {
+  @include transition(all, 0.2s, ease-out);
+  color: #fff;
+  font-size: 1.6rem;
+  border: 0;
+  border-radius: 3px;
+  padding: 8px 14px;
+  cursor: pointer;
+  background: $button_primary_bg;
+  &:hover {
+    opacity: 0.9;
+  }
+  &:active, &:focus {
+    opacity: 1;
+    background: $button_primary_bg_active;
+  }
 }
 
 .clearfix:after { 
@@ -161,6 +284,7 @@ a {
     h3 {
       font-size: 2.5rem;
       margin: 0;
+      font-family: 'Pacifico'
     }
   }
 }
@@ -173,13 +297,15 @@ a {
 }
 @media (max-width: 590px) {
 	#descript {
-		width: 420px;
-		h1 {
-			font-size: 4.5rem;
-		}
-		h3 {
-			font-size: 2rem;
-		}
+    width: 420px;
+    a {
+      h1 {
+        font-size: 4.5rem;
+      }
+      h3 {
+        font-size: 2rem;
+      }
+    }
 	}
 }
 
@@ -199,16 +325,27 @@ a {
 	@extend .block-wrapper;
 	width: calc(95% - 2.5% - 300px);
 	float: left;
-	margin: 0 2.5% 40px 2.5%;
-	padding: 40px 8%;
+	margin: 0 2.5% 70px 2.5%;
+	padding: 60px 8% 70px 8%;
 }
 
 .sidebar-wrapper {
 	@extend .block-wrapper;
 	width: 300px;
 	float: left;
-	margin: 0 2.5% 0 0;
-	padding: 40px 2.5%;
+	margin: 0 2.5% 70 0;
+	padding: 30px 35px 60px 35px;
+}
+@media (max-width: 990px) {
+  .main-content-wrapper {
+    width: 95%;
+    margin: 0 2.5% 30px 2.5%;
+  }
+  .sidebar-wrapper {
+    width: 95%;
+    margin: 0 2.5% 50px 2.5%;
+    padding: 30px 8% 60px 8%;
+  }
 }
 
 #main-nav {
@@ -219,14 +356,14 @@ a {
 		li {
 			float: left;
 			list-style: none;
-			font-size: 2.2rem;
 			padding: 0 0 5px 15px;
 			a {
 				color: $white_opaque;
 				border-bottom: 2px solid $white_opaque;
+        font-size: 2.2rem;
 				&:hover {
-					color: $nav_dark_blue;
-					border-bottom: 2px solid $nav_dark_blue;
+					color: $nav_link_active;
+					border-bottom: 2px solid $nav_link_active;
 				}
 			}
 		}
@@ -235,7 +372,7 @@ a {
 @media (max-width: 1390px) {
 	#main-nav {
 		float: right;
-		padding: 28px 0 0 0; 
+		padding: 27px 0 0 0; 
 		ul {
 			li {
 				float: none;
@@ -257,10 +394,10 @@ a {
 		ul {
 			li {
 				position: relative;
-				font-size: 2.5rem;
 				padding: 0 0 25px 15px;
 				a {
 					border: 0px;
+          font-size: 2.5rem;
 					&:hover {
 						color: $white_opaque;
 						border-bottom: 0;
@@ -273,11 +410,11 @@ a {
 					bottom: 20px;
 					height: 3px;
 					width: 60px;
-					background-color: #27B38A;
+					background-color: $mobile_menu_underscore;
 				}
 				&:hover {
 					&:after {
-						background-color: #458DDA;
+						background-color: $mobile_menu_underscore_active;
 					}
 				}
 			}
@@ -288,14 +425,14 @@ a {
 	}	
 }
 
-header {
-	background-color: #3498db;
-	width: 100%;
-	height: 200px;
-	overflow: hidden;
-	position: fixed;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
+//header {
+//	background-color: #3498db;
+//	width: 100%;
+//	height: 200px;
+//	overflow: hidden;
+//	position: fixed;
+//	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+//}
 
 .nav-toggle {
 	@extend .floating-button;
@@ -375,12 +512,119 @@ header {
 	}
 }
 
+// Main Content
+
+#main-content {
+  position: relative;
+  h1 {
+    margin: 20px 0 50px 0;
+  }
+  ul {
+    li {
+      list-style: disc;
+      margin-left: 20px;
+    }
+  }
+}
+
+.corner-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  i {
+    font-size: 3rem;
+  }
+}
+
+.admin-link {
+  font-size: 1.6rem;
+  margin-left: 15px;
+  line-height: 2;
+}
+
+.fr-toolbar {
+  border-top: 1px solid #B7C7CB;
+}
+
+.bx-wrapper {
+  border: 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,.35);
+  a {
+    @include transition(all, 0s, ease-out);
+  }
+  li {
+    margin-left: 0px !important;
+  }
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a {
+  background: $content_link;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .bx-wrapper .bx-pager.bx-default-pager a:focus {
+  background: $content_link_active;
+}
+
+.bx-prev, .bx-next {
+  opacity: 0.6;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// Sidebar
+
+#sidebar {
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.sidebar-unit {
+  width: 100%;
+  margin-bottom: 40px;
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+@media (max-width: 990px) {
+  .sidebar-unit {
+    float: left;
+    width: calc(50% - 20px);
+    margin-bottom: 20px;
+    &:nth-child(odd) {
+      margin-right: 40px;
+    }
+  }
+}
+@media (max-width: 500px) {
+  #sidebar {
+    h3 {
+      margin-bottom: 30px;
+    }
+  }
+  .sidebar-unit {
+    float: none;
+    width: 100%;
+    &:nth-child(odd) {
+      margin-right: 0;
+    }
+  }
+}
+
+.sidebar-image {
+    width: 100%;
+}
+
+// Footer
+
 .footer-wrapper {
   padding: 0 2.5%;
 }
 
 #footer {
-	background-color: $grey_opaque;
+	background: $footer_bg;
 	width: 100%;
   padding: 40px 0 0 0;
   a {
@@ -439,7 +683,7 @@ header {
     i {
       @include transition(all, 0.2s, ease-out);
       font-size: 4rem;
-      color: #2D86D2;
+      color: $social_icons;
       &:hover, &:active, &:active {
         color: $footer_link_active;
       }
