@@ -1,0 +1,11 @@
+= simple_form_for(@subscription, remote: true) do |f|
+  .field
+    = f.input :name, label: false, placeholder: "Your name"
+  .field
+    = f.input :email, label: false, placeholder: "Your email"
+  .field.helement
+    = f.input :phone, label: false, placeholder: "Your phone"
+  .form-actions
+    = f.submit "Subscribe", class: "bttn footer action"
+  %br/
+  %p.description We'll never send you spam. Unsubscribe at any time.

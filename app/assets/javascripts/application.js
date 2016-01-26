@@ -113,6 +113,13 @@ $(document).ready(function() {
   
   
   // Initialize bxslider
-  $('.bxslider').bxSlider();
+	$('.bxslider').bxSlider({
+		auto:($(".bxslider > li").length > 1) ? true: false,
+		autoHover: true
+	});
+  
+  
+  // Remove last HR in at sidebar
+  $('#sidebar').find('hr').last().remove();
 	
 });

@@ -3,30 +3,17 @@
     .row
       #contacts.footer-blocks.col-lg-3.col-sm-6
         %h1 Contacts
-        %ul
+        %ul#contacts-aligner
           %li
-            info@balilearntosurf.com
-          %li
+            = render "shared/hello", text: "info@balilearntosurf.com"
+          %li.phone-short
             +62 361-761-869
           %li
             +62 361-79-22-922
           %li.address
             Hard Rock Hotel, Kuta, Bali
-      #social.footer-blocks.col-lg-3.col-sm-6
-        %h1 We are social
-        #social-aligner
-          = link_to "https://www.facebook.com/Bali-Learn-To-Surf-152963628075398/",
-          target: "_blank" do
-            %i.fa.fa-facebook
-          = link_to "https://twitter.com/BaliLearntoSurf", target: "_blank" do
-            %i.fa.fa-twitter
-          = link_to "http://www.youtube.com/user/BaliLearntoSurf", target: "_blank" do
-            %i.fa.fa-youtube
-          = link_to "https://plus.google.com/116652912078371300307", target: "_blank" do
-            %i.fa.fa-google-plus
-          = link_to "http://www.tripadvisor.com/Attraction_Review-g297697-d2079640-Reviews-Bali_Learn_To_Surf-Kuta_Bali.html", target: "_blank" do
-            %i.fa.fa-tripadvisor
-      .clearfix.visible-md.visible-sm
+          %li
+            = render "shared/footer/social"
       #testimonials.footer-blocks.col-lg-3.col-sm-6
         #testimonials-aligner
           %h1 Testimonials
@@ -36,6 +23,11 @@
           %span.link &nbsp;|&nbsp;
           = link_to "read more", "#", class: "link"
           .clearfix
+      .clearfix.visible-md.visible-sm
+      #newsletter.footer-blocks.col-lg-3.col-sm-6
+        %h1 Newsletter
+        #newsletter-aligner
+          = render "subscriptions/form"
       #friends.footer-blocks.col-lg-3.col-sm-6
         %h1 Our friends
         #friends-aligner

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :subscriptions, only: [:new, :create, :destroy]
   root 'pages#show', id: 'home'
   get ':id', to: 'pages#show', as: :show_page
   resources :pages
