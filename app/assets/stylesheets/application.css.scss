@@ -86,7 +86,7 @@ a, a img {
 @import "bootstrap";
 
 
-$field_types: "input[type=text], input[type=email], input[type=phone], input[type=password]";
+$field_types: "input[type=text], textarea, input[type=email], input[type=phone], input[type=password]";
 
 // Basic Colors
 $white_opaque: rgba(250, 250, 259, 0.85);
@@ -184,12 +184,13 @@ li {
 }
 
 #{$field_types} {
-  padding: 5px 7px;
   font-size: 1.6rem;
   width: 100%;
   border: 0;
   padding: 8px 14px;
   border-radius: 3px;
+  color: #333333;
+  vertical-align: top;
 }
 
 input[type="checkbox"] {
@@ -717,6 +718,9 @@ hr {
   h1, h3, p {
     color: $white_opaque;
   }
+  button, .bttn.action {
+    line-height: 1.4;
+  }
 }
 
 .footer-blocks{
@@ -770,13 +774,21 @@ hr {
   }
   button {
     margin-bottom: 10px;
-    line-height: 1.4;
   }
 }
 
 #contacts-aligner {
   width: 238px;
   margin: 0 auto;
+}
+
+.contact-form-wrapper {
+  display: none;
+  width: 100%;
+  textarea {
+    height: 153px;
+    line-height: 1.2;
+  }
 }
 
 #social {
@@ -906,7 +918,7 @@ hr {
   float: right;
   margin: 10px 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 550px) {
   #copy, #credits {
     float: none;
     text-align: center;

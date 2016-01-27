@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'contact_form_mailer/send_form'
+
   resources :subscriptions, only: [:new, :create, :destroy]
-  root 'pages#show', id: 'home'
-  get ':id', to: 'pages#show', as: :show_page
   resources :pages
+  
+  post 'contact_form', to: 'contact_form_mailer#send_form', as: :contact_form
+  get ':id', to: 'pages#show', as: :show_page
+  
+  root 'pages#show', id: 'home'
 	
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
