@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :subscriptions, only: [:new, :create, :destroy]
   resources :pages
   
+  get 'say-hello', to: 'contact_form_mailer#say_hello', as: :say_hello
   post 'contact_form', to: 'contact_form_mailer#send_form', as: :contact_form
   get ':id', to: 'pages#show', as: :show_page
   

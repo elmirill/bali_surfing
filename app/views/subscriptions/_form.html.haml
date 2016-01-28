@@ -1,10 +1,10 @@
 = simple_form_for(@subscription, remote: true) do |f|
   .field
-    = f.input :name, label: false, placeholder: "Your name"
+    = f.input :name, required: true, label: false, placeholder: "Your name"
   .field
-    = f.input :email, label: false, placeholder: "Your email"
+    = f.input :email, required: true, label: false, placeholder: "Your email"
   .field.helement
-    = f.input :phone, label: false, placeholder: "Your phone"
+    = f.input :phone, input_html: { autocomplete: 'off' }, label: false, placeholder: "Your phone"
   .form-actions
     = f.submit "Subscribe", class: "bttn footer action"
   %br/

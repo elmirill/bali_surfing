@@ -1,5 +1,8 @@
 class ContactFormMailerController < ApplicationController
   
+  def say_hello 
+  end
+  
   def send_form
     name = params[:contact_form_name]
     email = params[:contact_form_email]

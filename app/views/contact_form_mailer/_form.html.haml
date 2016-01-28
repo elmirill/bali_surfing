@@ -1,4 +1,4 @@
-.contact-form-wrapper
+#contact-form-wrapper
   = form_tag(contact_form_path, remote: true) do
     .field
       = text_field_tag 'contact_form_name', nil, required: true, placeholder: "Your name"

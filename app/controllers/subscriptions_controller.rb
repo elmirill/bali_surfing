@@ -12,20 +12,13 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new(subscription_params)
     
     if @subscription.phone.empty?
-      respond_to do |format|
-        if @subscription.save
-          format.html { redirect_to root_path, notice: 'Subscribed!' }
-          format.json { render :show, status: :created, location: @subscription }
-          format.js
-        else
-          format.html { render :new }
-          format.json { render json: @subscription.errors, status: :unprocessable_entity }
-          format.js
-        end
+      if @subscription.save
+        render 'ok'
+      else
+        render 'error'
       end
     else
-      redirect_to :back, notice: 'Subscribed!'
-      format.js
+      render 'bot'
     end
   end
 

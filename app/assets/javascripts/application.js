@@ -121,14 +121,5 @@ $(document).ready(function() {
   
   // Remove last HR in at sidebar
   $('#sidebar').find('hr').last().remove();
-  
-  
-  // Contact form button
-  $('.show-contact-form').click(function() {
-    $(this).hide();
-    $(this).closest('#contacts-aligner').find('li').hide();
-    $(this).closest('#contacts-aligner').find('li').first().show();
-    $(this).closest('.hello-wrapper').find('.contact-form-wrapper').slideDown("fast");
-  });
 	
 });

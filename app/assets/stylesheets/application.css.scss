@@ -140,6 +140,11 @@ body {
 
 h1 {
 	font-family: 'Pacifico';
+  font-size: 4.8rem;
+}
+
+h2 {
+  font-size: 2.4rem;
 }
 
 p {
@@ -219,8 +224,10 @@ hr {
   margin-bottom: 30px;
 }
 
-.bttn {
+.bttn, a.bttn, #footer a.bttn {
   @include transition(all, 0.2s, ease-out);
+  text-align: center;
+  display: block;
   color: #fff;
   font-size: 1.6rem;
   border: 0;
@@ -230,6 +237,7 @@ hr {
   background: $button_bg;
   &:hover {
     opacity: 0.9;
+    color: #fff;
   }
   &:active {
     opacity: 1;
@@ -394,7 +402,7 @@ hr {
 	@extend .block-wrapper;
 	width: 300px;
 	float: left;
-	margin: 0 2.5% 70 0;
+	margin: 0 2.5% 70px 0;
 	padding: 30px 35px 60px 35px;
 }
 @media (max-width: 990px) {
@@ -484,14 +492,6 @@ hr {
 	}	
 }
 
-//header {
-//	background-color: #3498db;
-//	width: 100%;
-//	height: 200px;
-//	overflow: hidden;
-//	position: fixed;
-//	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-//}
 
 // Styling Google Translate
 
@@ -618,7 +618,10 @@ hr {
 #main-content {
   position: relative;
   h1 {
-    margin: 20px 0 50px 0;
+    margin: 20px 0 50px -5px;
+  }
+  h1 + h2.sub-header {
+    margin: -35px 0 50px 0;
   }
   ul {
     li {
@@ -673,6 +676,16 @@ hr {
     opacity: 0.8;
   }
   z-index: 997 !important;
+}
+
+#contact-form-wrapper {
+  textarea {
+    height: 200px;
+    margin-bottom: 0px;
+  }
+  .bttn.action.primary {
+    width: auto;
+  }
 }
 
 // Sidebar
@@ -797,17 +810,11 @@ hr {
     margin-bottom: 10px;
   }
   .aligner {
-    max-width: 260px;
+    max-width: 250px;
     margin: 0 auto;
   }
-}
-
-.contact-form-wrapper {
-  display: none;
-  width: 100%;
-  textarea {
-    height: 153px;
-    line-height: 1.2;
+  .say-hello {
+    margin-bottom: 10px;
   }
 }
 
