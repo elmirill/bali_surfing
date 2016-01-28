@@ -2,44 +2,14 @@
   .page-wrapper.footer-wrapper
     .row
       #contacts.footer-blocks.col-lg-3.col-sm-6
-        %h1 Contacts
-        %ul#contacts-aligner
-          %li
-            = render "shared/hello", text: "info@balilearntosurf.com"
-          %li.phone-short
-            +62 361-761-869
-          %li
-            +62 361-79-22-922
-          %li.address
-            Hard Rock Hotel, Kuta, Bali
-          %li
-            = render "shared/footer/social"
-      #testimonials.footer-blocks.col-lg-3.col-sm-6
-        #testimonials-aligner
-          %h1 Testimonials
-          %p Thank you Bali Learn To Surf I've always wanted to learn to surf and had lessons with surf schools in Australia but could never stand up. You guys taught me how and got me standing in my first lesson and made my dream come true. I cant wait to tell all my mates I learnt to surf in Bali.
-          %h3.name Anna
-          = link_to "add yours", "#", class: "link"
-          %span.link &nbsp;|&nbsp;
-          = link_to "read more", "#", class: "link"
-          .clearfix
+        = render "shared/footer/contacts"
+      #social.footer-blocks.col-lg-3.col-sm-6
+        = render "shared/footer/social"
       .clearfix.visible-md.visible-sm
+      #testimonials.footer-blocks.col-lg-3.col-sm-6
+        = render "shared/footer/testimonials"
       #newsletter.footer-blocks.col-lg-3.col-sm-6
-        %h1 Newsletter
-        #newsletter-aligner
-          = render "subscriptions/form"
-      #friends.footer-blocks.col-lg-3.col-sm-6
-        %h1 Our friends
-        #friends-aligner
-          = link_to "http://www.rusty.com/", class: "friends-link", target: "_blank" do
-            = image_tag "rusty.png"
-          = link_to "http://www.kutapuri.com/bungalowandspa/",
-          class: "friends-link", target: "_blank" do
-            = image_tag "kuta-puri.png"
-          = link_to "http://www.hardrockhotels.net/",
-          class: "friends-link", target: "_blank" do
-            = image_tag "hard-rock.png"
-        .clearfix
+        = render "shared/footer/newsletter"
   #google-map
   #sub-footer.page-wrapper.footer-wrapper
     %p#copy

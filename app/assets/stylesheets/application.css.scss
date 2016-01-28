@@ -699,6 +699,25 @@ hr {
     width: 100%;
 }
 
+.friends-link {
+  display: block;
+  float: left;
+  margin: 0 10px 10px 0;
+  opacity: 0.80;
+  width: 70px;
+  height: 70px;
+  img {
+    width: 100%;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+
 // Footer
 
 .footer-wrapper {
@@ -762,9 +781,11 @@ hr {
 }
 
 #contacts {
-  line-height: 1.7;
+  line-height: 1.8;
   .address {
-    margin: 0 0 15px 0;
+    margin: 10px 0 0px 0;
+    font-size: 1.6rem;
+    line-height: 1.4;
   }
   .phone-short {
     margin-left: -19px;
@@ -775,11 +796,10 @@ hr {
   button {
     margin-bottom: 10px;
   }
-}
-
-#contacts-aligner {
-  width: 238px;
-  margin: 0 auto;
+  .aligner {
+    max-width: 260px;
+    margin: 0 auto;
+  }
 }
 
 .contact-form-wrapper {
@@ -795,15 +815,45 @@ hr {
   a {
     i {
       @include transition(all, 0.2s, ease-out);
-      font-size: 3.5rem;
+      font-size: 4rem;
       color: $social_icons;
       &:hover, &:active, &:active {
         color: $footer_link_active;
       }
     }
-    margin-right: 10px;
+    margin-right: 15px;
     &:last-child {
       margin-right: 0;
+    }
+  }
+  .aligner {
+    margin: 0 auto;
+    max-width: 275px;
+  }
+}
+@media (max-width: 1300px) {
+  #social {
+    a {
+      i {
+        font-size: 3.5rem;
+      }
+      margin-right: 13px;
+    }
+    .aligner {
+      max-width: 250px;
+    }
+  }
+}
+@media (max-width: 1199px) {
+  #social {
+    a {
+      i {
+        font-size: 4rem;
+      }
+      margin-right: 15px;
+    }
+    .aligner {
+      max-width: 275px;
     }
   }
 }
@@ -817,11 +867,33 @@ hr {
     font-size: 1.245rem;
     white-space: nowrap;
   }
+  .aligner {
+    margin: 0 auto;
+    max-width: 280px;
+  }
+  .field {
+    margin-bottom: 27px;
+  }
 }
-
-#newsletter-aligner {
-  margin: 0 auto;
-  max-width: 280px;
+@media (max-width: 1440px) {
+  #newsletter {
+    .aligner {
+      max-width: 250px;
+    }
+    .description {
+      font-size: 1.13rem;
+    }
+  }
+}
+@media (max-width: 1199px) {
+  #newsletter {
+    .aligner {
+      max-width: 280px;
+    }
+    .description {
+      font-size: 1.26rem;
+    }
+  }
 }
 
 #testimonials {
@@ -834,72 +906,23 @@ hr {
     margin-top: 19px;
     color: $footer_link;
   }
-}
-
-#testimonials-aligner {
-  max-width: 350px;
-  margin: 0 auto;
+  .aligner {
+    max-width: 350px;
+    margin: 0 auto;
+  }
 }
 @media (max-width: 450px) {
-  #testimonials-aligner {
-    padding: 0 30px;
+  #testimonials {
+    .aligner {
+      padding: 0 30px;
+    }
   }
 }
 @media (max-width: 330px) {
-  #testimonials-aligner {
-    padding: 0;
-  }
-}
-
-#friends-aligner {
-  max-width: 265px;
-  margin: 0 auto;
-}
-
-.friends-link {
-  display: block;
-  float: left;
-  margin: 0 10px 10px 0;
-  opacity: 0.80;
-  width: 80px;
-  height: 80px;
-  img {
-    width: 100%;
-  }
-  &:last-child {
-    margin-right: 0;
-  }
-  &:hover {
-    opacity: 1;
-  }
-}
-@media (max-width: 1250px) {
-  #friends-aligner {
-    max-width: 240px;
-  }
-  .friends-link {
-    width: 70px;
-    height: 70px;
-  }
-}
-@media (max-width: 1199px) {
-  #friends-aligner {
-    max-width: 310px;
-  }
-  .friends-link {
-    margin: 0 15px 15px 0;
-    width: 90px;
-    height: 90px;
-  }
-}
-@media (max-width: 360px) {
-  #friends-aligner {
-    max-width: 240px;
-  }
-  .friends-link {
-    margin: 0 10px 10px 0;
-    width: 70px;
-    height: 70px;
+  #testimonials {
+    .aligner {
+      padding: 0;
+    }
   }
 }
 

@@ -2,7 +2,8 @@
   #sidebar
     = render "shared/sidebar/features" if current_page?(root_url)
     .sidebar-unit
-      = render "shared/hello", text: "Say hello <i class='fa fa-hand-paper-o'></i>"
+      = render "shared/hello_button", text: "Say hello <i class='fa fa-hand-paper-o'></i>"
     %hr/
     = render "shared/sidebar/gallery"
+    = render "shared/sidebar/friends"
     
