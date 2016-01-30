@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'contact_form_mailer/send_form'
-
+  resources :surf_courses
   resources :subscriptions, only: [:new, :create, :destroy]
   resources :pages
   

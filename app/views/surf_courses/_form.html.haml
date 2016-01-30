@@ -1,0 +1,24 @@
+= simple_form_for(@surf_course) do |f|
+  = f.error_notification
+
+  .row
+    .field.col-xs-8
+      = f.input :title, label: false, placeholder: "Title"
+    .field.col-xs-4
+      = f.input :position, label: false, placeholder: "Position"
+    .field.col-xs-12
+      = f.input :subtitle, label: false, placeholder: "Subtitle"
+    .field.col-xs-12
+      = f.input :thumbnail, label: false, placeholder: "Thumbnail"
+    .field.col-xs-12
+      = f.text_area :content, class: "froala"
+    .field.col-xs-12
+      = f.input :price_1, label: false, placeholder: "Price 1"
+    .field.col-xs-12
+      = f.input :price_2, label: false, placeholder: "Price 2"
+    .field.col-xs-12
+      = f.input :price_3, label: false, placeholder: "Price 3"
+
+    .actions.col-xs-12
+      = f.submit class: "bttn inline"
+      = link_to "Back", :back, class: "admin-link"

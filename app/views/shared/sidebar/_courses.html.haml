@@ -1,0 +1,6 @@
+%h3 Surf courses
+%ul
+  - @surf_courses.each do |sc|
+    %li
+      = link_to sc.title, "##{sc.title.parameterize.underscore}", class: "scroll"
+%hr/

@@ -86,7 +86,7 @@ a, a img {
 @import "bootstrap";
 
 
-$field_types: "input[type=text], textarea, input[type=email], input[type=phone], input[type=password]";
+$field_types: "input[type=text], input[type=file], input[type=number], textarea, input[type=email], input[type=phone], input[type=password]";
 
 // Basic Colors
 $white_opaque: rgba(250, 250, 259, 0.85);
@@ -121,6 +121,7 @@ $footer_link: #FFA865;
 $footer_link_active: rgba(255, 168, 101, 0.7);
 // #2CDCA5;
 $social_icons: #D89562;
+$content_attractor: #E2481E;
 
 
 @mixin transition($property, $time, $effect) {
@@ -128,6 +129,14 @@ $social_icons: #D89562;
   -moz-transition: $property $time $effect;
   -o-transition: $property $time $effect;
   transition: $property $time $effect;
+}
+
+.basic-image {
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+  border-radius: 3px;
+//  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 
@@ -144,7 +153,11 @@ h1 {
 }
 
 h2 {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 2rem;
 }
 
 p {
@@ -196,6 +209,7 @@ li {
   border-radius: 3px;
   color: #333333;
   vertical-align: top;
+  background-color: #fff;
 }
 
 input[type="checkbox"] {
@@ -260,6 +274,9 @@ hr {
   &.action {
     font-size: 1.8rem;
     width: 100%;
+  }
+  &.inline {
+    display: inline;
   }
 }
 
@@ -403,7 +420,7 @@ hr {
 	width: 300px;
 	float: left;
 	margin: 0 2.5% 70px 0;
-	padding: 30px 35px 60px 35px;
+	padding: 50px 35px 60px 35px;
 }
 @media (max-width: 990px) {
   .main-content-wrapper {
@@ -428,7 +445,7 @@ hr {
 				color: $white_opaque;
 				border-bottom: 2px solid $white_opaque;
         font-size: 2.2rem;
-				&:hover {
+				&:hover, &.active, &:focus {
 					color: $nav_link_active;
 					border-bottom: 2px solid $nav_link_active;
 				}
@@ -465,7 +482,7 @@ hr {
 				a {
 					border: 0px;
           font-size: 2.5rem;
-					&:hover {
+					&:hover, &.active, &:focus {
 						color: $white_opaque;
 						border-bottom: 0;
 					}
@@ -523,6 +540,7 @@ hr {
 	@extend .floating-button;
 	top: 24px;
 	right: 24px;
+  z-index: 996;
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	&.active {
@@ -638,6 +656,12 @@ hr {
   i {
     font-size: 3rem;
   }
+  &.offset-1 {
+    right: 40px;
+  }
+  &.danger:hover {
+    color: red;
+  }
 }
 
 .admin-link {
@@ -651,14 +675,18 @@ hr {
 }
 
 .bx-wrapper {
+  @extend .basic-image;
   border: 0;
-  box-shadow: 0 2px 12px rgba(0,0,0,.35);
+//  box-shadow: 0 2px 12px rgba(0,0,0,.35);
   background: transparent;
   a {
     @include transition(all, 0s, ease-out);
   }
   li {
     margin-left: 0px !important;
+  }
+  .bx-viewport {
+    border-radius: 3px;
   }
 }
 
@@ -688,15 +716,74 @@ hr {
   }
 }
 
+.article {
+ position: relative;
+  .corner-link {
+    i {
+      font-size: 2.5rem;
+    }
+    &.offset-1 {
+      right: 35px;
+    }
+  }
+  h2 {
+    margin-bottom: 18px;
+  }
+  h2 + h3 {
+    margin: -10px 0 20px 0;
+  }
+  ul {
+    li {
+      list-style-position: inside !important;
+    }
+  }
+  .thumb {
+    @extend .basic-image;
+    padding: 0;
+    margin: 0 20px 20px 0;
+  }
+}
+@media (max-width: 767px) {
+  .article {
+    .thumb {
+      margin: 0 0 20px 0;
+    }
+  }
+}
+
+.surf-course {
+  @extend .article;
+  .prices {
+    color: $content_attractor;
+    margin-top: 15px;
+    h3 {
+      margin: 0 0 5px 0;
+    }
+  }
+  margin-bottom: 40px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 // Sidebar
 
 #sidebar {
   h3 {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 2.4rem
   }
   hr {
     margin: 40px 0 40px 0;
+  }
+  li {
+    margin-bottom: 5px;
+  }
+  &:first-child {
+    h3 {
+      margin-top: 0px;
+    }
   }
 }
 
@@ -709,7 +796,9 @@ hr {
 }
 
 .sidebar-image {
-    width: 100%;
+  border-radius: 3px;
+  width: 100%;
+  @extend .basic-image;
 }
 
 .friends-link {

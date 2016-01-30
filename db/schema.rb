@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126202323) do
+ActiveRecord::Schema.define(version: 20160130221405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(version: 20160126202323) do
     t.string   "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "surf_courses", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "price_1"
+    t.string   "price_2"
+    t.string   "price_3"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+    t.string   "subtitle"
+    t.integer  "position"
   end
 
 end

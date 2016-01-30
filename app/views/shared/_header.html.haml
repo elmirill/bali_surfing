@@ -13,14 +13,14 @@
     #main-nav
       %ul
         %li
-          = link_to "Surf courses", "#"
+          = render_nav_link("Surf courses", surf_courses_path)
         %li
-          = link_to "Surfari's", "#"
+          = render_nav_link("Surfari's", "#")
         %li
-          = link_to "Board rentals", show_page_path("boardrentals")
+          = render_nav_link("Board rentals", show_page_path("board_rentals"))
         %li
-          = link_to "Accomodations", "#"
+          = render_nav_link("Accomodations", "#")
         %li
-          = link_to "Gallery", "#"
+          = render_nav_link("Gallery", "#")
         %li
-          = link_to "Links", show_page_path("links")
+          = render_nav_link("Links", show_page_path("links"))

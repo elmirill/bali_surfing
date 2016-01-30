@@ -1,0 +1,24 @@
+= link_to new_surf_course_path, class: "corner-link" do
+  %i.fa.fa-plus
+%h1 Surf courses
+
+- @surf_courses.each do |sc|
+  .surf-course
+    = link_to edit_surf_course_path(sc), class: "corner-link offset-1" do
+      %i.fa.fa-pencil
+    = link_to surf_course_path(sc), method: :delete, data: { confirm: "Are you sure?" },
+                                                          class: "corner-link danger" do
+      %i.fa.fa-trash
+    
+    %h2{ id: sc.title.parameterize.underscore }= sc.title
+    - if sc.subtitle.present?
+      %h3= sc.subtitle
+    .clearfix
+    .row
+      .col-xs-12
+        = image_tag sc.thumbnail.url(:thumb), class: "thumb col-sm-6 col-xs-12"
+        %p= sc.content.html_safe
+        .prices
+          %h3= sc.price_1 if sc.price_1.present?
+          %h3= sc.price_2 if sc.price_2.present?
+          %h3= sc.price_3 if sc.price_3.present?

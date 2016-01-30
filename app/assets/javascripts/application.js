@@ -18,6 +18,7 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
+//= require jquery-smooth-scroll
 //= require froala_editor.min.js
 //= require languages/ru.js
 //= require plugins/char_counter.min.js
@@ -121,5 +122,13 @@ $(document).ready(function() {
   
   // Remove last HR in at sidebar
   $('#sidebar').find('hr').last().remove();
-	
+  
+  
+  // Remove extra p from froala
+  $('#main-content').find('p:empty').remove();	
+  
+  
+  // Initialize Smooth Scroll
+  $('a.scroll').smoothScroll();
+  
 });
