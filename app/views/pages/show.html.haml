@@ -1,5 +1,10 @@
 = link_to edit_page_path(@page), class: "corner-link" do
   %i.fa.fa-pencil
+  
 %h1= @page.name
+
 = render "shared/slider" if @page.slider?
+
+= image_tag @page.image.url(:main),
+                            class: "page-main-image simple-page-image" if @page.image.present?
 = @page.content.html_safe

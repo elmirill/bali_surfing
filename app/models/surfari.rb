@@ -1,22 +1,17 @@
-class Page < ActiveRecord::Base
-  validates :permalink, uniqueness: true
+class Surfari < ActiveRecord::Base
   
-  has_attached_file :image,
+  has_attached_file :thumbnail,
 						styles: {
-							main: {
-								geometry: "1000x420#",
+							thumb: {
+								geometry: "800x530#",
 								quality: "60",
 								format: "JPG"
               }
             },
 						preserve_files: true
 	
-  validates_attachment :image, 
+	validates_attachment :thumbnail, 
 						content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
               size: { in: 0..1.megabytes }
-  
-  def to_param
-    permalink
-  end
   
 end

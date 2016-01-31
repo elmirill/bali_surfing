@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130221405) do
+ActiveRecord::Schema.define(version: 20160131175224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,13 @@ ActiveRecord::Schema.define(version: 20160130221405) do
     t.string   "name"
     t.string   "permalink"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.boolean  "slider"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
@@ -49,6 +53,22 @@ ActiveRecord::Schema.define(version: 20160130221405) do
     t.datetime "thumbnail_updated_at"
     t.string   "subtitle"
     t.integer  "position"
+  end
+
+  create_table "surfaris", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.text     "content"
+    t.string   "price_1"
+    t.string   "price_2"
+    t.string   "price_3"
+    t.integer  "position"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
   end
 
 end

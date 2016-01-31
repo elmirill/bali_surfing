@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :surf_courses
+  resources :surfaris, except: [:show]
+  resources :surf_courses, except: [:show]
   resources :subscriptions, only: [:new, :create, :destroy]
   resources :pages
   

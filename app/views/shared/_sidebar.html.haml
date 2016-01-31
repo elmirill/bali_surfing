@@ -1,7 +1,8 @@
 .sidebar-wrapper
   #sidebar
-    = render "shared/sidebar/features" if current_page?(root_url) || current_page?(show_page_path("links"))
+    = render "shared/sidebar/features" if current_page?(root_url) || current_page?(show_page_path("board_rentals")) || current_page?(show_page_path("links"))
     = render "shared/sidebar/courses" if current_page?(surf_courses_path)
+    = render "shared/sidebar/surfaris" if current_page?(surfaris_path)
     = render "shared/sidebar/say_hello" if !current_page?(say_hello_path)
     = render "shared/sidebar/gallery"
     = render "shared/sidebar/friends"

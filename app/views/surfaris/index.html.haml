@@ -1,0 +1,32 @@
+= link_to new_surfari_path, class: "corner-link" do
+  %i.fa.fa-plus
+%h1 Surfari's
+
+= image_tag "surfaris_main.jpg", class: "page-main-image"
+
+%p Go exploring Bali's best beaches and surf breaks whether your a beginner or seasoned pro. Our Local and international guide will take you to the best spots on Bali (secret spots included) we take the hassle out of travel and the dangers out of surfing a new reefbreak for the first time, so all you have to think about is your next wave. All Surfari's include air conditioned trasport, refreshments, lunch (full day only), surfboards, boardshorts, vv protection surf shirts and profesional surfguides.
+
+%br/
+
+- @surfaris.each do |s|
+  .surfari
+    = link_to edit_surfari_path(s), class: "corner-link offset-1" do
+      %i.fa.fa-pencil
+    = link_to surfari_path(s), method: :delete, data: { confirm: "Are you sure?" },
+                                                          class: "corner-link danger" do
+      %i.fa.fa-trash
+    
+    %h2{ id: s.title.parameterize.underscore }= s.title
+    - if s.subtitle.present?
+      %h3= s.subtitle
+    .clearfix
+    .row
+      .col-xs-12
+        = image_tag s.thumbnail.url(:thumb), class: "thumb col-sm-6 col-xs-12"
+        %p= s.content.html_safe
+        .prices
+          %h3= s.price_1 if s.price_1.present?
+          %h3= s.price_2 if s.price_2.present?
+          %h3= s.price_3 if s.price_3.present?
+
+%p To avoid the hassles of searching for that perfect wave, contact us and let one of our surf guides take you there.
