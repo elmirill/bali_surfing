@@ -1,0 +1,6 @@
+%h3 Accommodations
+%ul
+  - @accommodations.each do |a|
+    %li
+      = link_to a.title, "##{a.title.parameterize.underscore}", class: "scroll"
+%hr/

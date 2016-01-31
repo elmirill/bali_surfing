@@ -1,5 +1,7 @@
 = link_to edit_page_path(@page), class: "corner-link" do
   %i.fa.fa-pencil
+- link_to page_path(@page), method: :delete, data: { confirm: "Are you sure?" }, class: "corner-link danger" do
+  %i.fa.fa-trash
   
 %h1= @page.name
 

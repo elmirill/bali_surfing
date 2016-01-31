@@ -1,0 +1,97 @@
+= link_to new_accommodation_path, class: "corner-link" do
+  %i.fa.fa-plus
+%h1 Accommodations
+
+= image_tag "accommodations_main.jpg", class: "page-main-image"
+
+.row
+  .col-lg-6
+    %h2 Surf'N'Stay package
+    %h3 @ The Kubu Hotel
+    %h4 Includes:
+    %ul
+      %li
+        Transfers to and from airport
+      %li
+        Surf Lessons
+      %li
+        Surf equipment
+      %li
+        Professional Surf Coaching
+      %li
+        Accommodation Single or Twin share
+      %li
+        Air conditioned Room with private balcony
+      %li
+        Hot and Cold water
+      %li
+        Shower + Bathtub
+      %li
+        Cable TV
+      %li
+        Safety box in room
+      %li
+        Breakfast included
+      %li
+        Swimming pool
+      %li
+        Bottled mineral water
+      %li
+        Restaurant
+      %li
+        Laundry service
+      %li
+        Massage facilities
+        
+    %br/
+  .col-lg-6
+    %h2 The Rock Star package
+    %h3 @ Hard Rock Hotel, Kuta beach, Bali
+    %h4 Includes:
+    %ul
+      %li
+        Transfers to and from airport
+      %li
+        Breakfast
+      %li
+        Surf Lessons
+      %li
+        Equipment
+      %li
+        Instruction
+      %li
+        Refreshments
+      %li
+        Free board hire after lesson
+      %li
+        Discount vouchers for hotel
+      %li
+        Certificate of surfing
+    %br/
+    %p We can also arrange other package deals which include rafting, bungee jump, mountain biking, trekking, yoga, massage, spa, safari parks, kite surfing and wake boarding.
+    %br/
+    
+%br/
+
+- @accommodations.each do |a|
+  .accommodation
+    = link_to edit_accommodation_path(a), class: "corner-link offset-1" do
+      %i.fa.fa-pencil
+    = link_to accommodation_path(a), method: :delete, data: { confirm: "Are you sure?" },
+                                                          class: "corner-link danger" do
+      %i.fa.fa-trash
+    
+    %h2{ id: a.title.parameterize.underscore }= a.title
+    - if a.subtitle.present?
+      %h3= a.subtitle
+    .clearfix
+    .row
+      .col-xs-12
+        = image_tag a.thumbnail.url(:thumb), class: "thumb col-sm-6 col-xs-12"
+        %p= a.content.html_safe
+        .prices
+          %h3= a.price_1 if a.price_1.present?
+          %h3= a.price_2 if a.price_2.present?
+          %h3= a.price_3 if a.price_3.present?
+        %br/
+        = link_to "Book now", "", class: "bttn action inline"

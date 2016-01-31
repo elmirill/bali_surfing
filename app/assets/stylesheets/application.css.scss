@@ -154,10 +154,19 @@ h1 {
 
 h2 {
   font-size: 2.8rem;
+  margin-bottom: 18px;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+h2 + h3 {
+  margin: -10px 0 20px 0;
 }
 
 p {
@@ -412,7 +421,7 @@ hr {
 	width: calc(95% - 2.5% - 300px);
 	float: left;
 	margin: 0 2.5% 70px 2.5%;
-	padding: 60px 8% 70px 8%;
+	padding: 60px 8% 80px 8%;
 }
 
 .sidebar-wrapper {
@@ -638,7 +647,7 @@ hr {
   h1 {
     margin: 20px 0 50px 0;
   }
-  h1 + h2.sub-header {
+  h1 + .sub-header {
     margin: -35px 0 50px 0;
   }
   ul {
@@ -718,7 +727,7 @@ hr {
 
 .article {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   .corner-link {
     i {
       font-size: 2.5rem;
@@ -730,9 +739,6 @@ hr {
   h2 {
     margin-bottom: 18px;
   }
-  h2 + h3 {
-    margin: -10px 0 20px 0;
-  }
   ul {
     li {
       list-style-position: inside !important;
@@ -741,7 +747,7 @@ hr {
   .thumb {
     @extend .basic-image;
     padding: 0;
-    margin: 0 20px 20px 0;
+    margin: 0 30px 20px 0;
   }
   .prices {
     color: $content_attractor;
@@ -765,6 +771,13 @@ hr {
       margin: 0 0 20px 0;
       float: none;
     }
+    .prices {
+      float: left;
+    }
+    .bttn {
+      float: right;
+      width: auto !important;
+    }
   }
 }
 
@@ -784,13 +797,10 @@ hr {
   }
 }
 
-.surf-course {
+.surf-course, .surfari, .accommodation {
   @extend .article;
 }
 
-.surfari {
-  @extend .article;
-}
 
 // Sidebar
 

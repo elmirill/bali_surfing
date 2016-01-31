@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131175224) do
+ActiveRecord::Schema.define(version: 20160131224954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accommodations", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.text     "content"
+    t.string   "price_1"
+    t.string   "price_2"
+    t.string   "price_3"
+    t.integer  "position"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+  end
 
   create_table "pages", force: :cascade do |t|
     t.string   "name"

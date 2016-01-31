@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :accommodations, except: [:show]
   resources :surfaris, except: [:show]
   resources :surf_courses, except: [:show]
   resources :subscriptions, only: [:new, :create, :destroy]
