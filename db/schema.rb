@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131224954) do
+ActiveRecord::Schema.define(version: 20160201191336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 20160131224954) do
     t.datetime "thumbnail_updated_at"
   end
 
+  create_table "galleries", force: :cascade do |t|
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string   "name"
     t.string   "permalink"
@@ -46,6 +52,21 @@ ActiveRecord::Schema.define(version: 20160131224954) do
   end
 
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "caption"
+    t.string   "alt"
+    t.integer  "position"
+    t.integer  "gallery_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "pictures", ["gallery_id"], name: "index_pictures_on_gallery_id", using: :btree
 
   create_table "subscriptions", force: :cascade do |t|
     t.string   "name"
@@ -87,4 +108,13 @@ ActiveRecord::Schema.define(version: 20160131224954) do
     t.datetime "thumbnail_updated_at"
   end
 
+  create_table "testimonials", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "pictures", "galleries"
 end

@@ -1,0 +1,21 @@
+= link_to new_testimonial_path, class: "corner-link" do
+  %i.fa.fa-plus
+%h1 Testimonials
+
+%br/
+
+- @testimonials.each do |t|
+  .testimonial
+    = link_to edit_testimonial_path(t), class: "corner-link offset-1" do
+      %i.fa.fa-pencil
+    = link_to testimonial_path(t), method: :delete, data: { confirm: "Are you sure?" },
+                                                          class: "corner-link danger" do
+      %i.fa.fa-trash
+    
+    .row
+      .col-xs-12
+        %p= t.content
+        %h3= t.name
+  %hr/
+
+= link_to "Add yours", "#", class: "bttn action inline"

@@ -1,6 +1,6 @@
-class CreateAccomodations < ActiveRecord::Migration
+class CreateAccommodations < ActiveRecord::Migration
   def change
-    create_table :accomodations do |t|
+    create_table :accommodations do |t|
       t.string :title
       t.string :subtitle
       t.text :content

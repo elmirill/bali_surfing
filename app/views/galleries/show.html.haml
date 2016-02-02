@@ -1,0 +1,14 @@
+%h1 Gallery
+
+= link_to edit_gallery_path(@gallery), class: "corner-link" do
+  %i.fa.fa-pencil
+
+.row
+  .col-xs-12= @gallery.description.html_safe if @gallery.description.present?
+
+  - @gallery.pictures.each do |picture|
+    .col-md-3.col-sm-4.col-xs-6.gallery-image
+      = link_to picture.image.url(:original), class: "image-popup-fit",
+                                                                title: picture.caption do
+        = image_tag picture.image.url(:thumb), class: "basic-image fullwidth",
+                                              alt: picture.alt, title: picture.caption

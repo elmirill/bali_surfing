@@ -1,0 +1,23 @@
+.row
+  = simple_form_for @gallery, html: { multipart: true } do |f|
+    = f.error_notification
+
+    .field.col-xs-12
+      = f.text_area :description, class: "froala"
+
+    .clearfix
+    %br/
+
+    #pictures
+      = f.simple_fields_for :pictures do |picture|
+        = render 'picture_fields', f: picture
+      .links.col-md-3.col-sm-4.col-xs-6
+        = link_to_add_association 'Add picture', f, :pictures, class: "bttn grey"
+
+    .clearfix
+    %br/
+    %br/
+
+    .actions.col-xs-12
+      = f.submit class: "bttn inline"
+      = link_to "Back", :back, class: "admin-link"

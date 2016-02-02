@@ -12,6 +12,7 @@
  *
 
  *= require bxslider
+ *= require magnific-popup
  *= require froala_editor.min.css
  *= require froala_style.min.css
  *= require font-awesome
@@ -136,6 +137,9 @@ $content_attractor: #E2481E;
   -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
   border-radius: 3px;
+  &.fullwidth {
+    width: 100%;
+  }
 //  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
@@ -199,6 +203,7 @@ a {
   &:hover, &:active, &:focus {
     text-decoration: none;
     color: $content_link_active;
+    outline: 0;
   }  
 }
 
@@ -243,8 +248,8 @@ label {
 
 hr {
   border-color: rgba(119, 119, 119, 0.6);
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .bttn, a.bttn, #footer a.bttn {
@@ -286,6 +291,9 @@ hr {
   }
   &.inline {
     display: inline;
+  }
+  &.grey {
+    background: #9E9E9E;
   }
 }
 
@@ -429,7 +437,7 @@ hr {
 	width: 300px;
 	float: left;
 	margin: 0 2.5% 70px 0;
-	padding: 50px 35px 60px 35px;
+	padding: 60px 35px 60px 35px;
 }
 @media (max-width: 990px) {
   .main-content-wrapper {
@@ -660,6 +668,7 @@ hr {
 
 .corner-link {
   position: absolute;
+  z-index: 2;
   top: 0;
   right: 0;
   i {
@@ -801,6 +810,56 @@ hr {
   @extend .article;
 }
 
+.testimonial {
+  @extend .article;
+  margin: 0;
+  h3 {
+    text-align: left;
+  }
+  .corner-link {
+    top: auto;
+    bottom: 9px;
+    i {
+      font-size: 2.5rem;
+    }
+    &.offset-1 {
+      right: 35px;
+    }
+  }
+}
+
+#testimonial_content {
+  height: 200px;
+}
+
+#pictures {
+  .links {
+    margin-top: 20px; 
+  }
+}
+
+.add-pictures {
+  margin-top: 20px;
+  .field {
+    position: relative;
+    overflow: hidden;
+  }
+  .corner-link {
+    top: -18px;
+    right: 0;
+  }
+  input[type="file"] {
+    position: absolute;
+    top: 0;
+    opacity: 0.8;
+    border-radius: 0;
+  }
+}
+
+.gallery-image {
+  padding: 15px;
+}
+
 
 // Sidebar
 
@@ -809,9 +868,6 @@ hr {
     text-align: center;
     margin-bottom: 20px;
     font-size: 2.4rem
-  }
-  hr {
-    margin: 40px 0 40px 0;
   }
   li {
     margin-bottom: 5px;
@@ -829,12 +885,6 @@ hr {
   &:last-child {
     margin-bottom: 0px;
   }
-}
-
-.sidebar-image {
-  border-radius: 3px;
-  width: 100%;
-  @extend .basic-image;
 }
 
 .friends-link {

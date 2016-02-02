@@ -1,0 +1,11 @@
+= simple_form_for(@testimonial) do |f|
+  = f.error_notification
+
+  .field
+    = f.input :name, label: false, placeholder: "Name"
+  .field
+    = f.text_area :content, placeholder: "Testimonial"
+
+  .actions
+    = f.submit class: "bttn inline"
+    = link_to "Back", :back, class: "admin-link"

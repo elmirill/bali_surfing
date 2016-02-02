@@ -1,0 +1,10 @@
+.nested-fields.add-pictures.col-md-3.col-sm-4.col-xs-6
+  = link_to_remove_association f, class: "corner-link danger" do
+    %i.fa.fa-minus-circle
+  .field.basic-image
+    = f.input :image, label: false
+    = image_tag f.object.image.url(:thumb), class: "basic-image fullwidth"
+  .field
+    = f.input :caption, label: false, placeholder: "Caption"
+  .field
+    = f.input :alt, label: false, placeholder: "Alt"

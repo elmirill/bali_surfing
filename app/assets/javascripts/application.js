@@ -19,6 +19,8 @@
 //= require underscore
 //= require gmaps/google
 //= require jquery-smooth-scroll
+//= require cocoon
+//= require magnific-popup
 //= require froala_editor.min.js
 //= require languages/ru.js
 //= require plugins/char_counter.min.js
@@ -120,7 +122,8 @@ $(document).ready(function() {
 	});
   
   
-  // Remove last HR in at sidebar
+  // Remove last HR
+//  $('#main-content').find('hr').last().remove();
   $('#sidebar').find('hr').last().remove();
   
   
@@ -131,4 +134,32 @@ $(document).ready(function() {
   // Initialize Smooth Scroll
   $('a.scroll').smoothScroll();
   
+  
+  // Initialize Magnific Popup
+	$('.image-popup-fit').magnificPopup({
+		type: 'image',
+		closeOnContentClick: true,
+		mainClass: 'mfp-fade',
+		removalDelay: 300,
+    zoom: {
+      enabled: true,
+      duration: 300,
+      easing: 'ease-in-out'
+    },
+		image: {
+			verticalFit: true,
+			titleSrc: function(item) {
+				return item.el.attr('title');
+			}
+		},
+		gallery: {
+			enabled: true, // set to true to enable gallery
+			preload: [0,2], // read about this option in next Lazy-loading section
+			navigateByImgClick: true,
+			arrowMarkup: '<button type="button" class="mfp-arrow mfp-arrow-%dir%"></button>', // markup of an arrow button
+			tCounter: '%curr% / %total%' // markup of counter
+		}
+	});
+  
+
 });

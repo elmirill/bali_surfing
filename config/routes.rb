@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :galleries, except: [:index, :destroy]
+  resources :testimonials
   resources :accommodations, except: [:show]
   resources :surfaris, except: [:show]
   resources :surf_courses, except: [:show]
   resources :subscriptions, only: [:new, :create, :destroy]
   resources :pages
   
+  get 'gallery', to: 'galleries#show', as: :show_gallery
   get 'say-hello', to: 'contact_form_mailer#say_hello', as: :say_hello
   post 'contact_form', to: 'contact_form_mailer#send_form', as: :contact_form
   get ':id', to: 'pages#show', as: :show_page

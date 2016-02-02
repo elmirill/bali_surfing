@@ -1,8 +1,8 @@
 .aligner
   %h1 Testimonials
-  %p Thank you Bali Learn To Surf I've always wanted to learn to surf and had lessons with surf schools in Australia but could never stand up. You guys taught me how and got me standing in my first lesson and made my dream come true. I cant wait to tell all my mates I learnt to surf in Bali.
-  %h3.name Anna
+  %p= truncate(@random_testimonial.content, length: 280, separator: ' ')
+  %h3.name= @random_testimonial.name
   = link_to "add yours", "#", class: "link"
   %span.link &nbsp;|&nbsp;
-  = link_to "read more", "#", class: "link"
+  = link_to "read more", testimonials_path, class: "link"
   .clearfix

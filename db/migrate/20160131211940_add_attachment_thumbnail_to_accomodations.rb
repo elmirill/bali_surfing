@@ -1,11 +1,11 @@
-class AddAttachmentThumbnailToAccomodations < ActiveRecord::Migration
+class AddAttachmentThumbnailToAccommodations < ActiveRecord::Migration
   def self.up
-    change_table :accomodations do |t|
+    change_table :accommodations do |t|
       t.attachment :thumbnail
     end
   end
 
   def self.down
-    remove_attachment :accomodations, :thumbnail
+    remove_attachment :accommodations, :thumbnail
   end
 end
