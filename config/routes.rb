@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
 
-  resources :galleries, except: [:index, :destroy]
+  resources :passwords, controller: "clearance/passwords", only: [:create, :new]
+  resource :session, controller: "clearance/sessions", only: [:create]
+
+  resources :users, controller: "clearance/users", only: [:create] do
+    resource :password,
+      controller: "clearance/passwords",
+      only: [:create, :edit, :update]
+  end
+
+  get "admin" => "clearance/sessions#new", as: "sign_in"
+  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+#  get "/sign_up" => "clearance/users#new", as: "sign_up"
+  
+  resources :galleries, except: [:index, :destroy, :new]
   resources :testimonials
   resources :accommodations, except: [:show]
   resources :surfaris, except: [:show]
@@ -8,17 +21,17 @@ Rails.application.routes.draw do
   resources :subscriptions, only: [:new, :create, :destroy]
   resources :pages
   
-  get 'gallery', to: 'galleries#show', as: :show_gallery
-  get 'say-hello', to: 'contact_form_mailer#say_hello', as: :say_hello
-  get 'give-testimonial', to: 'testimonial_form_mailer#give_testimonial', as: :give_testimonial
-  get 'book-course', to: 'book_course_mailer#book_course', as: :book_course
-  get 'book-accommodation', to: 'book_accommodation_mailer#book_accommodation', as: :book_accommodation
-  get ':id', to: 'pages#show', as: :show_page
+  get '/gallery', to: 'galleries#show', as: :show_gallery
+  get '/say-hello', to: 'contact_form_mailer#say_hello', as: :say_hello
+  get '/give-testimonial', to: 'testimonial_form_mailer#give_testimonial', as: :give_testimonial
+  get '/book-course', to: 'book_course_mailer#book_course', as: :book_course
+  get '/book-accommodation', to: 'book_accommodation_mailer#book_accommodation', as: :book_accommodation
+  get '/:id', to: 'pages#show', as: :show_page
   
-  post 'contact-form', to: 'contact_form_mailer#send_form', as: :contact_form
-  post 'testimonial-form', to: 'testimonial_form_mailer#send_form', as: :testimonial_form
-  post 'book-course-form', to: 'book_course_mailer#send_form', as: :book_course_form
-  post 'book-accommodation-form', to: 'book_accommodation_mailer#send_form', as: :book_accommodation_form
+  post '/contact-form', to: 'contact_form_mailer#send_form', as: :contact_form
+  post '/testimonial-form', to: 'testimonial_form_mailer#send_form', as: :testimonial_form
+  post '/book-course-form', to: 'book_course_mailer#send_form', as: :book_course_form
+  post '/book-accommodation-form', to: 'book_accommodation_mailer#send_form', as: :book_accommodation_form
   
   root 'pages#show', id: 'home'
 	

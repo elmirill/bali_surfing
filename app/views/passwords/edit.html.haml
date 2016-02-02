@@ -1,0 +1,10 @@
+#clearance.password-reset
+  %h1= t(".title")
+  %h3.sub-header= t(".description")
+  = form_for :password_reset,                                        |
+    url: user_password_path(@user, token: @user.confirmation_token), |
+    html: { method: :put } do |form|                                 |
+    .field
+      = form.password_field :password, placeholder: "Password"
+    .field
+      = form.submit class: "bttn inline"

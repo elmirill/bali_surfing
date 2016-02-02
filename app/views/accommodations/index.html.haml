@@ -1,5 +1,6 @@
-= link_to new_accommodation_path, class: "corner-link" do
-  %i.fa.fa-plus
+- if signed_in?
+  = link_to new_accommodation_path, class: "corner-link" do
+    %i.fa.fa-plus
 %h1 Accommodations
 
 = image_tag "accommodations_main.jpg", class: "page-main-image"
@@ -75,11 +76,12 @@
 
 - @accommodations.each do |a|
   .accommodation
-    = link_to edit_accommodation_path(a), class: "corner-link offset-1" do
-      %i.fa.fa-pencil
-    = link_to accommodation_path(a), method: :delete, data: { confirm: "Are you sure?" },
-                                                          class: "corner-link danger" do
-      %i.fa.fa-trash
+    - if signed_in?
+      = link_to edit_accommodation_path(a), class: "corner-link offset-1" do
+        %i.fa.fa-pencil
+      = link_to accommodation_path(a), method: :delete, data: { confirm: "Are you sure?" },
+                                                            class: "corner-link danger" do
+        %i.fa.fa-trash
     
     %h2{ id: a.title.parameterize.underscore }= a.title
     - if a.subtitle.present?

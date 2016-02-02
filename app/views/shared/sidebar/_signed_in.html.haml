@@ -1,0 +1,7 @@
+.signed_in
+  %p
+    = current_user.email
+    |
+    = link_to "sign out", sign_out_path, method: :delete
+  
+%hr/

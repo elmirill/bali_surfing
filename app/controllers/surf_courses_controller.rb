@@ -1,4 +1,5 @@
 class SurfCoursesController < ApplicationController
+  before_action :require_login, except: [:index, :show]
   before_action :set_surf_course, only: [:show, :edit, :update, :destroy]
 
   # GET /surf_courses

@@ -27,6 +27,7 @@ gem 'underscore-rails', '~> 1.8', '>= 1.8.3' # dependency for gmaps
 gem 'font-awesome-rails'
 gem 'simple_form', '~> 3.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.6'
+gem 'clearance', '~> 1.12', '>= 1.12.1'
 
 group :development, :test do
   gem 'byebug'

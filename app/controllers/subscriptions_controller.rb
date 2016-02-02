@@ -22,15 +22,15 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-  # DELETE /subscriptions/1
-  # DELETE /subscriptions/1.json
-  def destroy
-    @subscription.destroy
-    respond_to do |format|
-      format.html { redirect_to subscriptions_url, notice: 'Subscription was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+#  # DELETE /subscriptions/1
+#  # DELETE /subscriptions/1.json
+#  def destroy
+#    @subscription.destroy
+#    respond_to do |format|
+#      format.html { redirect_to subscriptions_url, notice: 'Subscription was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
+#  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

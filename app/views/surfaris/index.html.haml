@@ -1,5 +1,7 @@
-= link_to new_surfari_path, class: "corner-link" do
-  %i.fa.fa-plus
+- if signed_in?
+  = link_to new_surfari_path, class: "corner-link" do
+    %i.fa.fa-plus
+  
 %h1 Surfari's
 %h3.sub-header We will take you to the best waves and let you know the local knowledge of all the breaks.
 
@@ -11,11 +13,12 @@
 
 - @surfaris.each do |s|
   .surfari
-    = link_to edit_surfari_path(s), class: "corner-link offset-1" do
-      %i.fa.fa-pencil
-    = link_to surfari_path(s), method: :delete, data: { confirm: "Are you sure?" },
-                                                          class: "corner-link danger" do
-      %i.fa.fa-trash
+    - if signed_in?
+      = link_to edit_surfari_path(s), class: "corner-link offset-1" do
+        %i.fa.fa-pencil
+      = link_to surfari_path(s), method: :delete, data: { confirm: "Are you sure?" },
+                                                            class: "corner-link danger" do
+        %i.fa.fa-trash
     
     %h2{ id: s.title.parameterize.underscore }= s.title
     - if s.subtitle.present?

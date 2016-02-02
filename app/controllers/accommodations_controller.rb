@@ -1,4 +1,5 @@
 class AccommodationsController < ApplicationController
+  before_action :require_login, except: [:index, :show]
   before_action :set_accommodation, only: [:show, :edit, :update, :destroy]
 
   # GET /accommodations

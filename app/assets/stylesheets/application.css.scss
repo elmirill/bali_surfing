@@ -526,6 +526,22 @@ hr {
 	}	
 }
 
+.alert {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  border-radius: 3px;
+  padding: 25px;
+  &.alert-notice {
+    background-color: #C0DAE4;
+    border-color: #9CC8E0;
+    color: #366386;
+  }
+  &.alert-danger {
+    background-color: #E8CBCB;
+    border-color: #D8A0A9;
+    color: #983735;
+  }
+}
 
 // Styling Google Translate
 
@@ -902,6 +918,12 @@ hr {
   }
   &:hover {
     opacity: 1;
+  }
+}
+
+.signed_in {
+  p {
+    text-align: center;
   }
 }
 

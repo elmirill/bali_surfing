@@ -1,0 +1,8 @@
+#clearance.password-reset
+  %h1= t(".title")
+  %h3.sub-header= t(".description")
+  = form_for :password, url: passwords_path do |form|
+    .field
+      = form.text_field :email, type: 'email', placeholder: "Email"
+    .field
+      = form.submit class: "bttn inline"

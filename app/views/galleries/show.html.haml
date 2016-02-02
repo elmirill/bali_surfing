@@ -1,7 +1,8 @@
 %h1 Gallery
 
-= link_to edit_gallery_path(@gallery), class: "corner-link" do
-  %i.fa.fa-pencil
+- if signed_in?
+  = link_to edit_gallery_path(@gallery), class: "corner-link" do
+    %i.fa.fa-pencil
 
 .row
   .col-xs-12= @gallery.description.html_safe if @gallery.description.present?

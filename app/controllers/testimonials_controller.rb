@@ -1,4 +1,5 @@
 class TestimonialsController < ApplicationController
+  before_action :require_login, except: [:index, :show]
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
 
   # GET /testimonials

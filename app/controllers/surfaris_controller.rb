@@ -1,4 +1,5 @@
 class SurfarisController < ApplicationController
+  before_action :require_login, except: [:index, :show]
   before_action :set_surfari, only: [:show, :edit, :update, :destroy]
 
   # GET /surfaris
