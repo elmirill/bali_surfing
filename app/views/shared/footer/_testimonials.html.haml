@@ -2,7 +2,7 @@
   %h1 Testimonials
   %p= truncate(@random_testimonial.content, length: 280, separator: ' ')
   %h3.name= @random_testimonial.name
-  = link_to "add yours", "#", class: "link"
+  = link_to "add yours", give_testimonial_path, class: "link"
   %span.link &nbsp;|&nbsp;
   = link_to "read more", testimonials_path, class: "link"
   .clearfix

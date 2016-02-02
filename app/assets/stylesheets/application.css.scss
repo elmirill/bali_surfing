@@ -87,7 +87,7 @@ a, a img {
 @import "bootstrap";
 
 
-$field_types: "input[type=text], input[type=file], input[type=number], textarea, input[type=email], input[type=phone], input[type=password]";
+$field_types: "input[type=text], input[type=file], input[type=number], textarea, input[type=email], input[type=phone], input[type=password], select";
 
 // Basic Colors
 $white_opaque: rgba(250, 250, 259, 0.85);
@@ -724,7 +724,7 @@ hr {
   z-index: 997 !important;
 }
 
-#contact-form-wrapper {
+#contact-form-wrapper, #book-course-wrapper, #book-accommodation-wrapper, #give-testimonial-mailer-wrapper {
   textarea {
     height: 200px;
     margin-bottom: 0px;

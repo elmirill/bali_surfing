@@ -30,4 +30,7 @@
           %h3= s.price_2 if s.price_2.present?
           %h3= s.price_3 if s.price_3.present?
 
-%p To avoid the hassles of searching for that perfect wave, contact us and let one of our surf guides take you there.
+%p
+  To avoid the hassles of searching for that perfect wave, 
+  = link_to "contact us", say_hello_path
+  and let one of our surf guides take you there.

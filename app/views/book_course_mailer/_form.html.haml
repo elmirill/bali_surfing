@@ -1,0 +1,14 @@
+#book-course-wrapper
+  = form_tag(book_course_form_path, remote: true) do
+    .field
+      = text_field_tag 'book_course_name', nil, required: true, placeholder: "Your name"
+    .field
+      = text_field_tag 'book_course_email', nil, required: true, placeholder: "Your email"
+    .field
+      = collection_select 'book_course_course', :surf_course_id,
+                                  @surf_courses, :id, :title, selected: @selected_course
+    .field
+      = text_area_tag 'book_course_message', nil, required: false,
+                                                            placeholder: "Say something"
+      = text_field_tag 'book_course_nickname', nil, autocomplete: :off, placeholder: "Your nickname", class: "helement"
+    = submit_tag "Book the course", class: "bttn action primary"

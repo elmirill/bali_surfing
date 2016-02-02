@@ -1,4 +1,5 @@
 class SurfCourse < ActiveRecord::Base
+  validates :title, presence: true, uniqueness: true
   
   has_attached_file :thumbnail,
 						styles: {

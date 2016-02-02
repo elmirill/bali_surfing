@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
-  validates :permalink, uniqueness: true
+  validates :title, presence: true
+  validates :permalink, presence: true, uniqueness: true
   
   has_attached_file :image,
 						styles: {

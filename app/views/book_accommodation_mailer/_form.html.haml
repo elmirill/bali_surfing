@@ -1,0 +1,14 @@
+#book-accommodation-wrapper
+  = form_tag(book_accommodation_form_path, remote: true) do
+    .field
+      = text_field_tag 'book_accommodation_name', nil, required: true, placeholder: "Your name"
+    .field
+      = text_field_tag 'book_accommodation_email', nil, required: true, placeholder: "Your email"
+    .field
+      = collection_select 'book_accommodation_accommodation', :accommodation_id,
+                        @accommodations, :id, :title, selected: @selected_accommodation
+    .field
+      = text_area_tag 'book_accommodation_message', nil, required: false,
+                                                            placeholder: "Say something"
+      = text_field_tag 'book_accommodation_nickname', nil, autocomplete: :off, placeholder: "Your nickname", class: "helement"
+    = submit_tag "Book the accommodation", class: "bttn action primary"

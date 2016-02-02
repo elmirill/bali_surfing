@@ -1,0 +1,11 @@
+#give-testimonial-mailer-wrapper
+  = form_tag(testimonial_form_path, remote: true) do
+    .field
+      = text_field_tag 'testimonial_form_name', nil, required: true, placeholder: "Your name"
+    .field
+      = text_field_tag 'testimonial_form_email', nil, required: true, placeholder: "Your email"
+    .field
+      = text_area_tag 'testimonial_form_testimonial', nil, required: true,
+                                         placeholder: "Say what do you think about us!"
+      = text_field_tag 'testimonial_form_nickname', nil, autocomplete: :off, placeholder: "Your nickname", class: "helement"
+    = submit_tag "I'm done, send it!", class: "bttn action primary"

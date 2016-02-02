@@ -10,8 +10,15 @@ Rails.application.routes.draw do
   
   get 'gallery', to: 'galleries#show', as: :show_gallery
   get 'say-hello', to: 'contact_form_mailer#say_hello', as: :say_hello
-  post 'contact_form', to: 'contact_form_mailer#send_form', as: :contact_form
+  get 'give-testimonial', to: 'testimonial_form_mailer#give_testimonial', as: :give_testimonial
+  get 'book-course', to: 'book_course_mailer#book_course', as: :book_course
+  get 'book-accommodation', to: 'book_accommodation_mailer#book_accommodation', as: :book_accommodation
   get ':id', to: 'pages#show', as: :show_page
+  
+  post 'contact-form', to: 'contact_form_mailer#send_form', as: :contact_form
+  post 'testimonial-form', to: 'testimonial_form_mailer#send_form', as: :testimonial_form
+  post 'book-course-form', to: 'book_course_mailer#send_form', as: :book_course_form
+  post 'book-accommodation-form', to: 'book_accommodation_mailer#send_form', as: :book_accommodation_form
   
   root 'pages#show', id: 'home'
 	

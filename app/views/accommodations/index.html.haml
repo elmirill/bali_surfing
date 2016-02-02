@@ -94,4 +94,4 @@
           %h3= a.price_2 if a.price_2.present?
           %h3= a.price_3 if a.price_3.present?
         %br/
-        = link_to "Book now", "", class: "bttn action inline"
+        = link_to "Book now", book_accommodation_path(accommodation: a.id), class: "bttn action inline"
