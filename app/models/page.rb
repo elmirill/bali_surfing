@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  validates :title, presence: true
+  validates :name, presence: true
   validates :permalink, presence: true, uniqueness: true
   
   has_attached_file :image,
