@@ -1,7 +1,9 @@
 .sidebar-unit
   %h3 Qualified Instructors
-  = image_tag "sidebar-instructors.jpg", class: "basic-image fullwidth"
+  = link_to "/#instructors", class: "scroll" do
+    = image_tag "sidebar-instructors.jpg", class: "basic-image fullwidth"
 .sidebar-unit
   %h3 The Latest Equipment
-  = image_tag "sidebar-equipment.jpg", class: "basic-image fullwidth"
+  = link_to "/#equipment", class: "scroll" do
+    = image_tag "sidebar-equipment.jpg", class: "basic-image fullwidth"
 %hr/
