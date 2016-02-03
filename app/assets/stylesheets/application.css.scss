@@ -171,6 +171,28 @@ h3 {
 h4 {
   font-size: 1.8rem;
 }
+@media (max-width: 767px) {
+  h1 {
+    font-size: 3.6rem;
+  }
+  h2 {
+    font-size: 2.4rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.2rem;
+  }
+  h3 {
+    font-size: 1.8rem;
+  }
+}
 
 h2 + h3 {
   margin: -10px 0 20px 0;
@@ -756,7 +778,7 @@ hr {
 
 .article {
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   .corner-link {
     i {
       font-size: 2.5rem;
@@ -778,9 +800,12 @@ hr {
     padding: 0;
     margin: 0 30px 20px 0;
   }
+  .bttn {
+    margin-bottom: 20px;
+  }
   .prices {
-    color: $content_attractor;
     margin-top: 15px;
+    color: $content_attractor;
     h3 {
       margin: 0 0 5px 0;
     }
@@ -799,13 +824,6 @@ hr {
     .thumb {
       margin: 0 0 20px 0;
       float: none;
-    }
-    .prices {
-      float: left;
-    }
-    .bttn {
-      float: right;
-      width: auto !important;
     }
   }
 }
