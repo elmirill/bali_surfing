@@ -92,37 +92,40 @@ $field_types: "input[type=text], input[type=file], input[type=number], textarea,
 // Basic Colors
 $white_opaque: rgba(250, 250, 259, 0.85);
 $wrapper_shadow: 0 0 15px 5px rgba(0,0,0,0.1);
-$content_link: #206EC1;
-$content_link_active: #0D8A65;
-$nav_link_active: #184779;
-$mobile_menu_underscore_active: #458DDA;
-$button_bg: linear-gradient(40deg, #3D819A 10%, #0A9A8D 100%);
-$button_bg_active: linear-gradient(40deg, #37758C 10%, #0A8277 100%);
-$button_footer_bg: linear-gradient(40deg, #428FAB 10%, #0D9A8D 100%);
-$button_footer_bg_active: linear-gradient(40deg, #3E86A0 10%, #0B9689 100%);
-$button_primary_bg: linear-gradient(40deg, #DA9742 10%, #E86137 100%);
-$button_primary_bg_active: linear-gradient(40deg, #B38041 10%, #AB553B 100%);
+$content_link: #1E73CE;
+$content_link_active: #0A946B;
+$nav_link_active: #0F5196;
+$mobile_menu_underscore_active: #3382D6;
+$button_bg: linear-gradient(40deg, #418DA9 10%, #099E91 100%);
+$button_bg_active: linear-gradient(40deg, #3B89A7 10%, #089285 100%);
+$button_footer_bg: linear-gradient(40deg, #4197B7 10%, #0BA596 100%);
+$button_footer_bg_active: linear-gradient(40deg, #4392AF 10%, #09A092 100%);
+$button_primary_bg: linear-gradient(40deg, #EFA345 10%, #F1713F 100%);
+$button_primary_bg_active: linear-gradient(40deg, #E89E43 10%, #DA623E 100%);
 
-// Teal Theme
-$body_bg: linear-gradient(40deg, 
-  rgba(61, 106, 154, 1) 10%, rgba(10, 154, 110, 1) 100%);
-$mobile_menu_underscore: #27B38A;
-$footer_bg: rgba(50, 50, 50, 0.5);
-$footer_link: #3B9BEC;
-$footer_link_active: #21B789;
-$social_icons: #2D86D2;
+//// Teal Theme
+//$body_bg: linear-gradient(40deg, 
+//  rgba(61, 106, 154, 1) 10%, rgba(10, 154, 110, 1) 100%);
+//$mobile_menu_underscore: #27B38A;
+//$footer_bg: rgba(50, 50, 50, 0.5);
+//$footer_link: #3B9BEC;
+//$footer_link_active: #21B789;
+//$social_icons: #2D86D2;
 
 // Orange Theme
-$body_bg: linear-gradient(40deg,
-  rgba(236, 157, 59, 1) 10%, rgba(224, 80, 42, 1) 100%);
-$mobile_menu_underscore: #E65832;
-$footer_bg: linear-gradient(40deg, 
-  rgba(61, 106, 154, 1) 10%, rgba(10, 154, 110, 1) 100%);
-$footer_link: #FFA865;
-$footer_link_active: rgba(255, 168, 101, 0.7);
+//$body_bg: linear-gradient(40deg,
+//  rgba(236, 157, 59, 1) 10%, rgba(224, 80, 42, 1) 100%);
+$body_bg: linear-gradient(40deg, #FFAB2C 10%, #EF6733 100%);
+//$mobile_menu_underscore: #E65832;
+$mobile_menu_underscore: #FF701D;
+//$footer_bg: linear-gradient(40deg, 
+//  rgba(61, 106, 154, 1) 10%, rgba(10, 154, 110, 1) 100%);
+$footer_bg: linear-gradient(40deg, #2E649E 10%, #08966B 100%);
+$footer_link: #FFA95B;
+$footer_link_active: #FFBF85;
 // #2CDCA5;
-$social_icons: #D89562;
-$content_attractor: #E2481E;
+$social_icons: #E69D66;
+$content_attractor: #F16F1E;
 
 
 @mixin transition($property, $time, $effect) {
@@ -270,6 +273,7 @@ hr {
   &:active {
     opacity: 1;
     background: $button_bg_active;
+    box-shadow: inset 0 0 10px 3px rgba(0, 0, 0, 0.1);
   }
   &.footer {
     background: $button_footer_bg;
